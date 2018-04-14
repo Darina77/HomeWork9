@@ -1,10 +1,11 @@
 package com.myapp.controllers;
 
+import com.myapp.data.entities.Student;
 import com.myapp.services.interfaces.StudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -17,4 +18,10 @@ public class HomeController {
         model.addAttribute("studentsList",studentsService.getAllStudents());
         return "home";
     }
+
+    @RequestMapping({"/students"})
+    public String showStudentsPage(){
+        return "students";
+    }
+
 }
